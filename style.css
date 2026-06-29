@@ -1,0 +1,730 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* CSS Custom Properties */
+:root {
+  --rot: #c8102e;
+  --dunkel: #1a1a2e;
+  --hell: #f5f1eb;
+  --grau: #e8e2d9;
+  --akzent: #d4a843;
+  --text: #2c2c2c;
+  --weiss: #ffffff;
+
+  --schrift-display: 'Playfair Display', Georgia, serif;
+  --schrift-text: 'Source Sans 3', Helvetica, sans-serif;
+
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --transition: 0.3s ease;
+}
+
+/* Reset & Basis */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--schrift-text);
+  font-weight: 400;
+  color: var(--text);
+  background-color: var(--hell);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Typografie */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--schrift-display);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--weiss);
+}
+
+h2 {
+  font-size: clamp(22px, 3vw, 35px);
+  color: var(--rot);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--dunkel);
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--rot);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* Navigation (Bootstrap-kompatibel via CDN) */
+.navbar {
+  background-color: var(--dunkel) !important;
+  border-bottom: 3px solid var(--rot);
+  padding: 12px 24px;
+}
+
+.navbar-brand {
+  font-family: var(--schrift-display);
+  font-size: 24px;
+  color: var(--weiss) !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand .flag-icon {
+  font-size: 24px;
+}
+
+.nav-link {
+  font-family: var(--schrift-text);
+  font-weight: 600;
+  color: var(--grau) !important;
+  letter-spacing: 0.05em;
+  padding: 12px 24px !important;
+  transition: color var(--transition), border-bottom var(--transition);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--akzent) !important;
+  border-bottom: 2px solid var(--akzent);
+}
+
+.navbar-toggler {
+  border-color: var(--akzent) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28212,168,67,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* -- Hero / Seitenkopf -- */
+.hero {
+  background: linear-gradient(135deg, var(--dunkel) 0%, #2d1f3d 50%, #8b1a2a 100%);
+  color: var(--weiss);
+  padding: 80px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  position: absolute;
+  font-size: 30vw;
+  opacity: 0.04;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  color: var(--weiss);
+}
+
+.hero p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 600px;
+  margin: 16px auto 0;
+}
+
+/* Seiteninhalt Container */
+.container-inhalt {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* Abschnitt-Trennlinie */
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--grau);
+  margin: 48px 0;
+}
+
+/* SEITE 1 – Startseite */
+
+/* Meta-Info-Box (Abgabedatum, Dokumentation, Ersteller) */
+.meta-box {
+  background: var(--weiss);
+  border-left: 4px solid var(--rot);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+
+.meta-box dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 32px;
+  row-gap: 10px;
+}
+
+.meta-box dt {
+  font-weight: 600;
+  color: var(--rot);
+  font-family: var(--schrift-display);
+}
+
+.meta-box dd {
+  color: var(--text);
+}
+
+/* Zahlen Grid 3 Spalten × 2 Zeilen */
+.zahlen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.zahl-card {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  text-align: center;
+  border-top: 4px solid var(--rot);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.zahl-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.zahl-card .number {
+  font-family: var(--schrift-display);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--rot);
+  display: block;
+}
+
+.zahl-card .label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  margin-top: 5px;
+}
+
+.zahl-card .sub {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Multimedia-Bereich */
+.media-section {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-top: 40px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.media-item h3 {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Video-Platzhalter */
+video {
+  width: 100%;
+  border-radius: var(--radius);
+  background: #000;
+  border: 2px solid var(--grau);
+}
+
+/* Audio */
+audio {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.media-placeholder {
+  background: var(--grau);
+  border-radius: var(--radius);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 14px;
+  border: 2px dashed #ccc;
+  gap: 8px;
+}
+
+.media-placeholder .icon {
+  font-size: 40px;
+}
+
+/* SEITE 2 – Kantone */
+
+/* 4-Spalten Grid Desktop → 2 Tablet → 1 Mobile */
+.kantone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* Bootstrap Card Overrides */
+.kanton-card {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.kanton-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.kanton-card .card-header {
+  background: var(--dunkel);
+  color: var(--weiss);
+  font-family: var(--schrift-display);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 19px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px solid var(--rot);
+}
+
+.kanton-card .wappen {
+  font-size: 26px;
+}
+
+.kanton-card .card-body {
+  padding: 20px;
+}
+
+.kanton-card .card-body p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.kanton-card .kanton-fakt {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--grau);
+}
+
+.kanton-card .kanton-fakt:last-child {
+  border-bottom: none;
+}
+
+.kanton-card .kanton-fakt strong {
+  color: var(--rot);
+}
+
+/* Bild über Text (figure mit caption) */
+.kanton-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 130px;
+}
+
+.kanton-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.4s ease;
+}
+
+.kanton-card:hover .kanton-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* 2-Spalten Intro-Zeile (Desktop) */
+.intro-zwei-spalten {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* 3-Spalten mit unterschiedlichen Breiten */
+.drei-spalten {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.drei-spalten .info-box {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* Accordion */
+/* Bootstrap accordion overrides */
+.accordion-item {
+  border: 1px solid var(--grau) !important;
+  border-radius: var(--radius) !important;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.accordion-button {
+  font-family: var(--schrift-text);
+  font-weight: 600;
+  color: var(--dunkel) !important;
+  background: var(--weiss) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--dunkel) !important;
+  color: var(--weiss) !important;
+  box-shadow: none !important;
+}
+
+.accordion-button::after {
+  filter: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: invert(1);
+}
+
+.accordion-body {
+  background: var(--hell);
+  font-size: 16px;
+}
+
+/* Modal */
+/* Bootstrap modal override */
+.modal-header {
+  background: var(--dunkel);
+  color: var(--weiss);
+  border-bottom: 3px solid var(--rot);
+}
+
+.modal-title {
+  font-family: var(--schrift-display);
+  color: var(--weiss);
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--grau);
+}
+
+.btn-schweiz {
+  background-color: var(--rot);
+  color: var(--weiss);
+  border: none;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-schweiz:hover {
+  background-color: #a00d24;
+  color: var(--weiss);
+}
+
+/* SEITE 3 – Über uns*/
+
+.ueber-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.person-card {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-align: center;
+}
+
+.person-card .bild-platzhalter {
+  background: var(--grau);
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  border-bottom: 3px solid var(--rot);
+  gap: 8px;
+}
+
+.person-card .bild-platzhalter .icon {
+  font-size: 64px;
+  color: #ccc;
+}
+
+.person-card .person-info {
+  padding: 24px;
+}
+
+.person-card .person-name {
+  font-family: var(--schrift-display);
+  font-size: 20px;
+  color: var(--dunkel);
+  margin-bottom: 5px;
+}
+
+.person-card .person-rolle {
+  font-size: 14px;
+  color: var(--rot);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Projekt-Info Box */
+.projekt-box {
+  background: var(--dunkel);
+  color: var(--weiss);
+  border-radius: var(--radius);
+  padding: 32px 40px;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.projekt-box::after {
+  content: '287';
+  position: absolute;
+  right: -8px;
+  bottom: -16px;
+  font-family: var(--schrift-display);
+  font-size: 128px;
+  font-weight: 800;
+  opacity: 0.07;
+  color: var(--weiss);
+  pointer-events: none;
+}
+
+.projekt-box h2 {
+  color: var(--akzent);
+  margin-bottom: 16px;
+}
+
+.projekt-box p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.projekt-box .modul-tag {
+  display: inline-block;
+  background: var(--rot);
+  color: var(--weiss);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+/* ANIMIERTES ELEMENT – CSS-only Puls-Kreis */
+.animiert-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--weiss);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  box-shadow: var(--shadow);
+  margin-top: 32px;
+}
+
+.puls-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--rot);
+  position: relative;
+  flex-shrink: 0;
+  animation: puls 2s ease-in-out infinite;
+}
+
+.puls-ring::before,
+.puls-ring::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--rot);
+  animation: ring-expand 2s ease-out infinite;
+  opacity: 0;
+}
+
+.puls-ring::after {
+  animation-delay: 0.8s;
+}
+
+@keyframes puls {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ring-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* FOOTER */
+footer {
+  background: var(--dunkel);
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 14px;
+  margin-top: 64px;
+  border-top: 3px solid var(--rot);
+}
+
+footer a {
+  color: var(--akzent);
+}
+
+footer .footer-kreuz {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--rot);
+}
+
+/* RESPONSIVE */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  .kantone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .drei-spalten {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .drei-spalten .info-box:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .zahlen-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kantone-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .intro-zwei-spalten {
+    grid-template-columns: 1fr;
+  }
+
+  .drei-spalten {
+    grid-template-columns: 1fr;
+  }
+
+  .ueber-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-box dl {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-box dt {
+    margin-top: 8px;
+  }
+}
+
+/* Kleines Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .zahlen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kantone-grid {
+    grid-template-columns: 1fr;
+  }
+}
